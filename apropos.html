@@ -1,0 +1,3103 @@
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQYCVlVaDhAIVllWAwYO",licenseKey:"0d3c09e20d",applicationID:"8284479"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(20),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(21),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),c.xhrWrappable&&t(10),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(9),s=t(8),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=y.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i("bst",[e,n,this.bstStart,y.now()])}),a.on(m,function(t,n,e){this.bstStart=y.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,y.now(),this.bstType])}),s.on(m,function(){this.bstStart=y.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,y.now(),"requestAnimationFrame"])}),o.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),o.on(g+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){function r(t,n,e){var r=t[n];"function"==typeof r&&(t[n]=function(){var t=i(arguments),n={};o.emit(e+"before-start",[t],n);var a;n[m]&&n[m].dt&&(a=n[m].dt);var s=r.apply(this,t);return o.emit(e+"start",[t,a],s),s.then(function(t){return o.emit(e+"end",[null,t],s),t},function(t){throw o.emit(e+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(21),a=t(20);n.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,l=s.Response,p=s.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,n){r(d[h],n,f),r(l[h],n,f)}),r(s,"fetch",c),o.on(c+"end",function(t,n){var e=this;if(n){var r=n.headers.get("content-length");null!==r&&(e.rxSize=r),o.emit(c+"done",[null,n],e)}else o.emit(c+"done",[t],e)}))},{}],7:[function(t,n,e){var r=t("ee").get("history"),o=t("wrap-function")(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,n,e){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],9:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],10:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",s)}function i(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,n,e){function r(){var t=window.NREUM;if(!t.loader_config)return null;var n=(t.loader_config.accountID||"").toString()||null,e=(t.loader_config.agentID||"").toString()||null,r=(t.loader_config.trustKey||"").toString()||null;if(!n||!e)return null;var a=i.generateCatId(),s=i.generateCatId(),c=Date.now(),f=o(a,s,c,n,e,r);return{header:f,guid:a,traceId:s,timestamp:c}}function o(t,n,e,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:n,ti:e}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}var i=t(18);n.exports={generateTracePayload:r,generateTraceHeader:o}},{}],12:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(l[r],this.listener,!1);n.aborted||(e.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):a(this,t),e.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[n,e,this.startTime]))}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return w(r)}function i(t,n){var e=f(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}function a(t,n){t.params.status=n.status;var e=o(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(13),u=t(11).generateTracePayload,d=t("ee"),l=["load","error","abort","timeout"],p=l.length,h=t("id"),m=t(16),w=t(15),v=window.XMLHttpRequest;s.features.xhr=!0,t(10),t(6),d.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener("load",function(e){a(n,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var e=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(e=!!NREUM.init.distributed_tracing.enabled),e&&this.sameOrigin){var r=u();r&&r.header&&(n.setRequestHeader("newrelic",r.header),this.dt=r)}}),d.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=w(r);i&&(e.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{d.emit("internal-error",[e])}catch(r){}}};for(var a=0;a<p;a++)n.addEventListener(l[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),d.on("xhr-load-added",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],n)}),d.on("removeEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],n)}),d.on("fn-start",function(t,n,e){n instanceof v&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,n){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,n],n)}),d.on("fetch-before-start",function(t){var n,e=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url&&(n=t[0].url),n&&(this.sameOrigin=f(n).sameOrigin);var r=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(r=!!NREUM.init.distributed_tracing.enabled),r&&this.sameOrigin){var o=u();if(!o||!o.header)return;var i=o.header;if("string"==typeof t[0]){var a={};for(var s in e)a[s]=e[s];a.headers=new Headers(e.headers||{}),a.headers.set("newrelic",i),this.dt=o,t.length>1?t[1]=a:t.push(a)}else t[0]&&t[0].headers&&(t[0].headers.append("newrelic",i),this.dt=o)}})}},{}],13:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],14:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(20),s=t(21),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],15:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],16:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],17:[function(t,n,e){function r(t,n){var e=t.getEntries();e.forEach(function(t){"first-paint"===t.name?a("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&a("timing",["fcp",Math.floor(t.startTime)])})}function o(t){if(t instanceof c&&!u){var n,e=Math.round(t.timeStamp);n=e>1e12?Date.now()-e:s.now()-e,u=!0,a("timing",["fi",e,{type:t.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var i,a=t("handle"),s=t("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){i=new PerformanceObserver(r);try{i.observe({entryTypes:["paint"]})}catch(f){}}if("addEventListener"in document){var u=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(t){document.addEventListener(t,o,!1)})}}},{}],18:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}n.exports={generateUuid:r,generateCatId:o}},{}],19:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],20:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],21:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],22:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){g[t]=m(t).concat(n)}function h(t,n){var e=g[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return g[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var g={},y={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(20),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(20),u=t("ee"),d=t(19),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1153.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:g,features:{},xhrWrappable:x,userAgent:d};t(14),t(17),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(22)},{}],"wrap-function":[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(21),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}]},{},["loader",2,12,4,3]);</script>
+<script>document.cookie = "__adblocker=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    var setNptTechAdblockerCookie = function(adblocker) {
+        var d = new Date();
+        d.setTime(d.getTime() + 60 * 5 * 1000);
+        document.cookie = "__adblocker=" + (adblocker ? "true" : "false") + "; expires=" + d.toUTCString() + "; path=/";
+    };
+    var script = document.createElement("script");
+    script.setAttribute("async", true);
+    script.setAttribute("src", "//www.npttech.com/advertising.js");
+    script.setAttribute("onerror", "setNptTechAdblockerCookie(true);");
+    document.getElementsByTagName("head")[0].appendChild(script);</script>
+<script>tp = window.tp || [];
+tp.push(["setCustomVariable", "userState", "anonymous"]);
+</script>
+<meta property="og:site_name" content="Le Temps" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>dataLayer = [{"subscription":"anonymous"}];</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TQ2B8Q');</script>
+<meta name="google-site-verification" content="z0tBKnrS4WrJ-Qq_7-W8j40X5-3Lnvlb7lf1a8FnfTE" />
+<meta name="apple-itunes-app" content="app-id=455659364" />
+<meta name="p:domain_verify" content="d0baf6f701271f1d36972e356dcfb112" />
+<meta property="fb:pages" content="319393291423771" />
+<meta property="fb:app_id" content="100160886777903" />
+<meta name="theme-color" content="#930025" />
+<meta name="robots" content="noarchive" />
+<meta name="description" content="Le Temps, site d&#039;information suisse." />
+<link rel="shortcut icon" href="https://assets.letemps.ch/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon" />
+<link rel="search" href="https://assets.letemps.ch/modules/custom/lt_custom/assets/opensearchdescription.xml" type="application/opensearchdescription+xml" title="LeTemps.ch" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//assets.letemps.ch/themes/custom/letemps/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="//assets.letemps.ch/themes/custom/letemps/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="//assets.letemps.ch/themes/custom/letemps/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="//assets.letemps.ch/themes/custom/letemps/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="//assets.letemps.ch/themes/custom/letemps/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="//assets.letemps.ch/themes/custom/letemps/favicons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="Le Temps"/>
+    <meta name="msapplication-TileColor" content="#930025" />
+    <meta name="msapplication-TileImage" content="//assets.letemps.ch/themes/custom/letemps/favicons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="//assets.letemps.ch/themes/custom/letemps/favicons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="//assets.letemps.ch/themes/custom/letemps/favicons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="//assets.letemps.ch/themes/custom/letemps/favicons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="//assets.letemps.ch/themes/custom/letemps/favicons/mstile-310x310.png" />
+    <title>Blogs - Le Temps</title>
+    <link rel="stylesheet" media="all" href="https://assets.letemps.ch/sites/default/files/css/css_sRqehnt1BzDuDMiA1Js1S89GJrV4Fi8fL_oha6_aMmY.css?q2g2cc" />
+<link rel="stylesheet" media="all" href="https://assets.letemps.ch/sites/default/files/css/css_JYYUdv4JmVuPjJuQM6T3RYohSfupZYAVS6jWoimXJFg.css?q2g2cc" />
+<link rel="stylesheet" media="print" href="https://assets.letemps.ch/sites/default/files/css/css_dt6w_Ggj_9GVRZhvn-lwWHZDBTmQbBlJrwCW3Nc2PsY.css?q2g2cc" />
+
+    
+<!--[if lte IE 8]>
+<script src="https://assets.letemps.ch/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+<script src="https://assets.letemps.ch/sites/default/files/js/js_B7pS3ddmNLFYOJi3j28odiodelMu-EhaOeKlHZ8E6y0.js"></script>
+
+  </head>
+  <body>
+    <a href="#main-content" class="visually-hidden focusable">Aller au contenu principal</a>
+    <script>
+        (function(src) {
+            var a = document.createElement("script");
+            a.type = "text/javascript";
+            a.async = true;
+            a.src = src;
+            var b = document.getElementsByTagName("script")[0];
+            b.parentNode.insertBefore(a, b)
+        })("//experience.tinypass.com/xbuilder/experience/load?aid=w4zNYLIkAY");
+    </script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TQ2B8Q&nojs=true" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>utag_data = {"customer_type":"anonymous"};</script><script type="text/javascript">
+           var wemf_url = (('https:' == document.location.protocol) ? 'https://temp-ssl.wemfbox.ch/cgi-bin/ivw/CP/' : 'http://letemps.wemfbox.ch/cgi-bin/ivw/CP/' );
+            var wemf_path = "service";
+        // Minified version of isMobile https://github.com/kaimallea/isMobile.
+        !function(a){var b=/iPhone/i,c=/iPod/i,d=/iPad/i,e=/(?=.*\bAndroid\b)(?=.*\bMobile\b)/i,f=/Android/i,g=/IEMobile/i,h=/(?=.*\bWindows\b)(?=.*\bARM\b)/i,i=/BlackBerry/i,j=/BB10/i,k=/Opera Mini/i,l=/(?=.*\bFirefox\b)(?=.*\bMobile\b)/i,m=new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)","i"),n=function(a,b){return a.test(b)},o=function(a){var o=a||navigator.userAgent;return this.apple={phone:n(b,o),ipod:n(c,o),tablet:n(d,o),device:n(b,o)||n(c,o)||n(d,o)},this.android={phone:n(e,o),tablet:!n(e,o)&&n(f,o),device:n(e,o)||n(f,o)},this.windows={phone:n(g,o),tablet:n(h,o),device:n(g,o)||n(h,o)},this.other={blackberry:n(i,o),blackberry10:n(j,o),opera:n(k,o),firefox:n(l,o),device:n(i,o)||n(j,o)||n(k,o)||n(l,o)},this.seven_inch=n(m,o),this.any=this.apple.device||this.android.device||this.windows.device||this.other.device||this.seven_inch,this.phone=this.apple.phone||this.android.phone||this.windows.phone,this.tablet=this.apple.tablet||this.android.tablet||this.windows.tablet,"undefined"==typeof window?this:void 0},p=function(){var a=new o;return a.Class=o,a};"undefined"!=typeof module&&module.exports&&"undefined"==typeof window?module.exports=o:"undefined"!=typeof module&&module.exports&&"undefined"!=typeof window?module.exports=p():"function"==typeof define&&define.amd?define("isMobile",[],a.isMobile=p()):a.isMobile=p()}(this);
+        if (isMobile.phone) {
+          wemf_path = "mobilesite/" + wemf_path;
+        }
+        var NETMX = wemf_url + wemf_path;
+        document.write("<img class=\"wemf\" src=\""+NETMX+"?r="+escape(document.referrer)+"&d="+(Math.random()*100000)+"&x="+screen.width+"x"+screen.height+"\" width=\"1\" height=\"1\" alt=\"\" />");</script><noscript><img src="https://temp-ssl.wemfbox.ch/cgi-bin/ivw/CP/service" width="1" height="1" alt="" /></noscript><script type="text/javascript">
+        (function(a,b,c,d){
+        a='//tags.tiqcdn.com/utag/axelspringer/rasch-romandie-letemps/prod/utag.js';
+        b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+        a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+        })();
+    </script>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <!-- SZMFRABO VERSION="1.1" -->
+<script>
+var szmvars="letemps//CP//";
+if (isMobile.phone) {
+  var szmopt={mobile:true};
+}
+</script>
+<script src="https://temp-ssl.wemfbox.ch/2004/01/survey.js"></script>
+<!-- /SZMFRABO -->
+
+<header class="header" id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-1 col-lg-10">
+          <div>
+    <div id="block-ltburgermenu" class="visible-xs block block-lt-custom">
+  
+    
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false"><span class="close-menu">Fermer</span><span class="open-menu">Menu</span> <span class="icon-bars"><span class="icon-bar top-bar"></span><span class="icon-bar middle-bar"></span><span class="icon-bar bottom-bar"></span></span></button>
+  </div>
+<div id="block-letemps-branding" class="block block-system">
+  
+    
+        <div class="header-logo text-center">
+      <a class="logo hidden-xs hidden-sm" href="/" rel="home" title="Le Temps"><img class="img-responsive" src="https://assets.letemps.ch/themes/custom/letemps/logo.svg" alt="Le Temps" /></a>
+      <a class="logo-t" href="/" rel="home" title="Le Temps"><img class="img-responsive" src="https://assets.letemps.ch/themes/custom/letemps/assets/svg/logo-t.svg" alt="Le Temps" /></a>
+
+      <a class="logo-mobile visible-xs-block visible-sm-block" href="/" rel="home" title="Le Temps"><img class="img-responsive" src="https://assets.letemps.ch/themes/custom/letemps/assets/svg/logo.svg" alt="Le Temps" /></a>
+      
+    </div>
+  </div>
+<nav role="navigation" aria-labelledby="block-useraccountmenu-menu" id="block-useraccountmenu" class="visible-xs">
+            
+  <h2 class="visually-hidden" id="block-useraccountmenu-menu">&lt;none&gt;</h2>
+  
+
+        
+              <ul class="menu nav">
+                          <li class="dropdown">
+                      <a href="#t" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="navbar-item"><i class="fa fa-user" aria-hidden="true"></i></span></a>
+                          <ul class="dropdown-menu">
+                          <li>
+                                    <a href="/user/login" class="">Se connecter</a>
+                              </li>
+          </ul>
+  
+                  </li>
+          </ul>
+  
+
+
+  </nav>
+<div class="header-top">
+  
+  
+        
+        <ul class="list-inline">
+              <li class="menu-link-login hidden-xs">
+                                <a href="/user/login?destination=/opinions/un-pacte-vert-leurope"  class="menu-link-login hidden-xs">Se connecter</a>
+                </li>
+              <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="navbar-item">Services</span> <i class="ltpsicon ltpsicon-chevron-down"></i></a>
+                  <ul class="dropdown-menu">
+              <li>
+                                <a href="/pdf" >ePaper/PDF</a>
+                </li>
+              <li>
+                                <a href="/newsletters" >Newsletters</a>
+                </li>
+              <li>
+                                <a href="http://www.letemps.ch/evenements" >Événements</a>
+                </li>
+              <li>
+                                <a href="/privileges" >Privilèges abonnés</a>
+                </li>
+              <li>
+                                <a href="/annonces" >Annonces</a>
+                </li>
+              <li>
+                                <a href="/annonces" >Avis de décès</a>
+                </li>
+              <li>
+                                <a href="http://www.letempsarchives.ch/" >Archives</a>
+                </li>
+              <li>
+                                <a href="http://www.letemps.ch/faq" >FAQ</a>
+                </li>
+              <li>
+                                <a href="/contact" >Contact</a>
+                </li>
+      </ul>
+  
+                </li>
+              <li>
+                                <a href="/subscribe"  class="label label label-premium">S&#039;abonner</a>
+                </li>
+      </ul>
+  
+
+
+  </div>
+<div class="clearfix"></div>
+
+  </div>
+
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="navbar-container">
+  <nav class="navbar navbar-default" id="main-navbar">
+    <div class="navbar-sticky">
+      <div class="">
+        <div class="row">
+          <div class="col-lg-offset-1 col-lg-10">
+            <div class="navbar-header visible-xs">
+              <ul class="list-inline">
+                <li class="visible-affix">
+                  <a href="/" class="logo-mobile">
+                    <img width="85" height="12" src="https://assets.letemps.ch/themes/custom/letemps/assets/svg/logo.svg" alt="Le Temps - Site média Suisse" class="img-responsive" />
+                  </a>
+                  <a href="/" class="logo-t">
+                    <img src="https://assets.letemps.ch/themes/custom/letemps/assets/svg/logo-t.svg" alt="Le Temps - Site média Suisse" class="img-responsive logo-t--mobile"/>
+                  </a>
+                </li>
+                <li class="hidden-affix"><a href="/en-continu" style="text-transform:lowercase">13 déc. 2019</a></li>
+                <li>
+                  <!-- <ul class="list-inline">
+                    <li><a href="/">Login</a></li>
+                    <li><a href="/">Services</a></li>
+                  </ul> -->
+                </li>
+              </ul>
+            </div>
+
+            <div class="collapse navbar-collapse" id="main-navbar-collapse">
+              <div class="nav-container">
+                <div class="js-priority-wrapper-letemps nav-inner">
+                                                        
+              <ul class="menu nav navbar-nav visible-links">
+                          <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="navbar-item">Rubriques</span> <i class="ltpsicon ltpsicon-chevron-down"></i></a>
+                          <ul class="dropdown-menu">
+                          <li>
+                                    <a href="/monde" class="">Monde</a>
+                              </li>
+                      <li>
+                                    <a href="/suisse" class="">Suisse</a>
+                              </li>
+                      <li>
+                                    <a href="/economie" class="">Économie</a>
+                              </li>
+                      <li>
+                                    <a href="/opinions" class="">Opinions</a>
+                              </li>
+                      <li>
+                                    <a href="/culture" class="">Culture</a>
+                              </li>
+                      <li>
+                                    <a href="/sciences" class="">Sciences</a>
+                              </li>
+                      <li>
+                                    <a href="/sport" class="">Sport</a>
+                              </li>
+                      <li>
+                                    <a href="/societe" class="">Société</a>
+                              </li>
+                      <li>
+                                    <a href="/lifestyle" class="">Lifestyle</a>
+                              </li>
+                      <li>
+                                    <a href="/hyperlien" class="">Hyperlien</a>
+                              </li>
+          </ul>
+  
+                  </li>
+                      <li>
+                                    <a href="/en-continu" class=""><span class="navbar-item">En continu</span></a>
+                              </li>
+                      <li>
+                                    <a href="/blogs" class=""><span class="navbar-item">Blogs</span></a>
+                              </li>
+                      <li>
+                                    <a href="/images/video" class=""><span class="navbar-item">Vidéos</span></a>
+                              </li>
+                      <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="navbar-item">Multimédia</span> <i class="ltpsicon ltpsicon-chevron-down"></i></a>
+                          <ul class="dropdown-menu">
+                          <li>
+                                    <a href="/podcast" class="">Podcasts</a>
+                              </li>
+                      <li>
+                                    <a href="/images/photographies" class="">Photographies</a>
+                              </li>
+                      <li>
+                                    <a href="/images/dossier" class="">Dossiers</a>
+                              </li>
+                      <li>
+                                    <a href="/images/interactif" class="">Interactif</a>
+                              </li>
+                      <li>
+                                    <a href="/images/chappatte" class="">Chappatte</a>
+                              </li>
+          </ul>
+  
+                  </li>
+                      <li>
+                                    <a href="/t" class="tmagazine-menu-item"><span class="navbar-item">T Magazine</span></a>
+                              </li>
+          </ul>
+  
+
+
+                                    <ul class="nav navbar-nav navbar-priority">
+                    <li class="dropdown">
+                      <a href="#" class="more hidden dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plus <i class="ltpsicon ltpsicon-chevron-down"></i></a>
+                      <ul class="hidden-links dropdown-menu"></ul>
+                    </li>
+                  </ul>
+                </div>
+                <ul class="nav navbar-nav navbar-search navbar-right">
+                  <li>
+                    <a href="/search"><span class="search-label">RECHERCHER </span><span class="fa fa-search sr-hidden"></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="np8-search-block navbar-search collapse" data-drupal-selector="np8-search-block" id="block-letemps-searchform">
+  
+    
+      <form action="/search" method="GET" id="np8-search-block" accept-charset="UTF-8">
+  <div class="form-group js-form-item form-item js-form-type-textfield form-item-keywords js-form-item-keywords form-no-label">
+      <label for="edit-keywords" class="visually-hidden js-form-required form-required">Mots-clés</label>
+        <input title="Enter your search keywords." data-drupal-selector="edit-keywords" type="text" id="edit-keywords" name="keywords" value="" size="15" maxlength="128" placeholder="Mots-clés" class="form-text required form-control" required="required" aria-required="true" />
+
+        </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="search" value="Rechercher" class="button js-form-submit form-submit btn-primary btn" />
+</div>
+
+</form>
+
+  </div>
+
+  </div>
+
+    <div class="region region-top-right">
+    <div id="block-admeirablock" class="block block-lt-admeira">
+  
+    
+      <div class="ad-container admeira admeira__hpa-1-sba">
+  <div class="ad">
+    <small>Publicité</small>
+    <div id="admeira-5df35eea7f0c9"></div>
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+    <div>
+    <div id="block-letemps-breadcrumbs" class="region-breadcrumb block block-system">
+  
+    
+      <div class="container">
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
+      <nav role="navigation" aria-labelledby="system-breadcrumb">
+        <span class="visually-hidden">Fil d'Ariane</span>
+        <ol class="breadcrumb">
+        <li class="visible-xs-inline"><a href="https://www.letemps.ch/"><i class="small ltpsicon ltpsicon-home"></i></a></li>
+                  <li class="hidden-xs" >
+                          <a href="/">Accueil</a>
+                      </li>
+                  <li  class="active">
+                          Blogs
+                      </li>
+                </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+
+  </div>
+<div id="block-admeirablock-2" class="block block-lt-admeira">
+  
+    
+      <div class="ad-container admeira admeira__wb-1">
+  <div class="ad">
+    <small>Publicité</small>
+    <div id="admeira-5df35eea7eb56"></div>
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+  <a id="main-content" tabindex="-1"></a>
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+
+    
+    
+
+    
+        <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-letemps-content" class="block block-system">
+  
+    
+      <div class="block-region-top"><div class="block block-views">
+  
+    
+      <div class="views-element-container"><div class="js-view-dom-id-fe866d9afdb2dc0cf707e362e35c56e69efa581590932a3f4062bd2da13f1cbf">
+  
+  
+  
+
+  
+  
+  <div class="views-element-container"><div class="js-view-dom-id-37365c15b7c0ef9c063b5592119211bb60430d249dcf690a516af9a58497ab3a">
+  
+  
+  
+
+  
+  
+  
+
+  <div class="views-view-grid horizontal cols-1 clearfix">
+            <div>
+                  <div>  <article class="article-full-teaser">
+    <div>
+        <a href="/node/1187371">
+            <figure class="picture picture-cover">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/png" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_cover/public/blogs/2019-12-12/netzero_opaline.png?itok=5KVJNA1i 1x"/>
+              <source media="(min-width: 0px)" type="image/png" data-srcset="https://assets.letemps.ch/sites/default/files/styles/767x422/public/blogs/2019-12-12/netzero_opaline.png?itok=u4BuC70j 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_cover/public/blogs/2019-12-12/netzero_opaline.png?itok=5KVJNA1i" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+            <article class="article-content article-content-inset main-content">
+                                <div class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Entreprendre en conscience, défis et réflexio...
+            
+
+                </div>
+                <h3 class="h1">
+                    <a href="/node/1187371" class="link link-text">Comme 500 autres entreprises, Opaline vise le zéro émission carbone d’ici à 2030
+</a>
+                </h3>
+
+                                                <a href="/node/1187371">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-12/df99d29cbebd-portrait_blog-150x150.jpg?itok=vlvleKIO" class="b-lazy bloggers-picture media-object img-circle">
+                </a>
+                
+                <p class="text-muted">Par
+                                                                                                Sofia de Meyer,
+
+                                    publié le
+                                      <time datetime="2019-12-12T16:05:30Z">jeu 12 décembre 2019 à 17:05</time></p>
+
+                                <p class="text-serif">
+                                                        Mercredi, l'écologie n'est pas entrée en tant que parti au Conseil Fédéral mais une annonce de taille a quand même était faite durant cette journée: Plus de 500 entreprises à travers le monde s'engagent publiquement à réduire leurs émissions de...
+                                  </p>
+            </article>
+        </div>
+    </div>
+</article>
+</div>
+              </div>
+      </div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+
+  <div data-drupal-views-infinite-scroll-content-wrapper class="views-infinite-scroll-content-wrapper clearfix"><div class="views-view-grid horizontal cols-2 clearfix">
+            <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187278">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/cropped-45701801_l-2.jpg?itok=Akdpim7W 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-12/cropped-45701801_l-2.jpg?itok=1cNTNF8E 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/cropped-45701801_l-2.jpg?itok=Akdpim7W" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Une chronique politique sans parti pris
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Une chronique politique sans parti pris
+            
+
+          </span>          <a href="/node/1187278" class="link link-text"><span>Le Conseil fédéral ne peut, ni ne doit représenter la population</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187278">
+                              <time datetime="2019-12-12T09:40:03Z">jeu 12 décembre 2019 à 10:40</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Jacques Neirynck </strong></span>
+                                </p>
+
+                           <a href="/node/1187278">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-12/jac-150x150.jpg?itok=Qr8WnlJS" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Les institutions fédérales suisses ressemblent aux poupées russes emboitées. Chacune est un modèle réduit de la précédente. C’est indispensable dans une acratie où le peuple détient le pouvoir suprême : inutile de lui présenter des lois dont il ne ve...
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187251">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/cropped-dafd5799f337-20_nouvelle_comedie_halte_ceva_vue_de_geneve.jpg?itok=Q4jtB-6- 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-12/cropped-dafd5799f337-20_nouvelle_comedie_halte_ceva_vue_de_geneve.jpg?itok=3-oYlTJk 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/cropped-dafd5799f337-20_nouvelle_comedie_halte_ceva_vue_de_geneve.jpg?itok=Q4jtB-6-" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Genève ville créative
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Genève ville créative
+            
+
+          </span>          <a href="/node/1187251" class="link link-text"><span>Le Léman Express : essentiel et bienvenu. Mais insuffisant !</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187251">
+                              <time datetime="2019-12-12T08:23:22Z">jeu 12 décembre 2019 à 09:23</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Sami Kanaan </strong></span>
+                                </p>
+
+                           <a href="/node/1187251">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-12/sami-150x150.jpg?itok=Hu494UOB" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                La densité de trafic automobile à Genève devient franchement inquiétante. Elle a des conséquences négatives sur tous les plans : sur l’environnement bien sûr, mais aussi sur la santé, l’économie, la qualité de vie. La nécessité d’inverser le cap para...
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+          <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187248">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/dsc_0217_dxo-810-2.jpg?itok=Yxa3F6UB 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-12/dsc_0217_dxo-810-2.jpg?itok=kZyqq2Jm 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/dsc_0217_dxo-810-2.jpg?itok=Yxa3F6UB" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Mon oeil
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Mon oeil
+            
+
+          </span>          <a href="/node/1187248" class="link link-text"><span>Pourquoi les Papous sont les Grecs du Pacifique</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187248">
+                              <time datetime="2019-12-12T08:19:09Z">jeu 12 décembre 2019 à 09:19</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Christian Jacot-Descombes </strong></span>
+                                </p>
+
+                           <a href="/node/1187248">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-12/christi-150x150.jpg?itok=JULhx_IU" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Lorsqu’il a posé le pied en Nouvelle-Zélande, en novembre dernier, Behrouz Boochani a été accueilli comme un héros par ses amis et ses collègues journalistes. Il s’est dit soulagé de retrouver la liberté après six ans passés dans le camp...
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187221">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/cropped-c485087e34d0-eaux_pollen.jpg?itok=HX3s78qq 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-12/cropped-c485087e34d0-eaux_pollen.jpg?itok=UQwNzz9s 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-12/cropped-c485087e34d0-eaux_pollen.jpg?itok=HX3s78qq" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Des avenues et des fleurs
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Des avenues et des fleurs
+            
+
+          </span>          <a href="/node/1187221" class="link link-text"><span>Lecture: “Journal de L. (1947-1952)” de Christophe Tison</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187221">
+                              <time datetime="2019-12-12T04:00:41Z">jeu 12 décembre 2019 à 05:00</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Dunia Miralles </strong></span>
+                                </p>
+
+                           <a href="/node/1187221">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-12/fleur-150x150.jpg?itok=3BZyZSo_" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Christophe Tison: l&#039;écrivain qui donne la parole à Lolita l&#039;enfant abusée du roman de Vladimir Nabokov Le 19 novembre, le Prix du Style, qui récompense explicitement le style littéraire d&#039;une œuvre, était décerné à Christophe Tison pour son livre &quot;Jo...
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+          <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187203">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/cropped-4931802547_b92fb06809_o_fotor.jpg?itok=5xVSxoio 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-11/cropped-4931802547_b92fb06809_o_fotor.jpg?itok=tW4wAwoN 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/cropped-4931802547_b92fb06809_o_fotor.jpg?itok=5xVSxoio" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                The Perpetual Tourist
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                The Perpetual Tourist
+            
+
+          </span>          <a href="/node/1187203" class="link link-text"><span>Away in a Manger</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187203">
+                              <time datetime="2019-12-11T18:15:53Z">mer 11 décembre 2019 à 19:15</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Joy Kundig </strong></span>
+                                </p>
+
+                           <a href="/node/1187203">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-11/joy_kundig-001-2_fotor-150x150.jpg?itok=PEv0rzaC" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                The old wooden cattle shed has been hauled up from the bomb shelter yet again. The Fimo figurines, the originals fashioned thirty-some years back, unrolled from their newspaper wrappings. The horse is missing a leg, and the pig an ear....
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187086">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/cropped-41340384_l.jpg?itok=ZzRxXYR3 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-11/cropped-41340384_l.jpg?itok=KSQygN5a 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/cropped-41340384_l.jpg?itok=ZzRxXYR3" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Les entreprises, aujourd’hui et demain
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Les entreprises, aujourd’hui et demain
+            
+
+          </span>          <a href="/node/1187086" class="link link-text"><span>Guerre commerciale, quel tarif?</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187086">
+                              <time datetime="2019-12-11T11:30:01Z">mer 11 décembre 2019 à 12:30</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Claudine Amstein </strong></span>
+                                </p>
+
+                           <a href="/node/1187086">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-11/claudine-amstein_directrice-cvci-150x150.jpg?itok=AnkheqOz" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                La nomination de deux juges de l’organe d’appel de l’Organisation mondiale du commerce est bloquée par les États-Unis. Le régulateur du commerce planétaire s&#039;en trouve paralysé. Coup de projecteur sur un embrouillamini préoccupant. C’est une crise gr...
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+          <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187071">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/steel-mill-4646843_1920.jpg?itok=dqoraH2X 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-11/steel-mill-4646843_1920.jpg?itok=g_jJqzo6 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/steel-mill-4646843_1920.jpg?itok=dqoraH2X" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Le climat aujourd'hui et demain
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Le climat aujourd'hui et demain
+            
+
+          </span>          <a href="/node/1187071" class="link link-text"><span>Climat, la croissance ou la vie?</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187071">
+                              <time datetime="2019-12-11T08:35:29Z">mer 11 décembre 2019 à 09:35</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Dorota Retelska </strong></span>
+                                </p>
+
+                           <a href="/node/1187071">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/sites/default/files/styles/thumbnail/public/blogs/2019-12-11/94640df183d1fd52ec87121986fbe357s96dmmrg?itok=gdrya-aB" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                La croissance, encore? La Chine été récemment félicitée de ses efforts pour réduire ses émissions de carbone. Actuellement, ce pays est confronté à un ralentissement de la croissance et il chercherait à la maintenir en lançant des nouveaux investisse...
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187065">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/cropped-wings.jpg?itok=4WjeNyCM 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-11/cropped-wings.jpg?itok=c4ewmsqD 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/cropped-wings.jpg?itok=4WjeNyCM" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Des ailes et des hélices
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Des ailes et des hélices
+            
+
+          </span>          <a href="/node/1187065" class="link link-text"><span>Livraison du premier drone Hermes 900pour la Suisse</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187065">
+                              <time datetime="2019-12-11T08:16:03Z">mer 11 décembre 2019 à 09:16</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Pascal Kümmerling </strong></span>
+                                </p>
+
+                           <a href="/node/1187065">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-11/planche-contact-006-copie-150x150.jpg?itok=X91B_J6J" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Ce lundi sur la base aérienne d’Emmen près de Lucerne, le premier drone de nouvelle génération de l’israélien Elbit Systems Hermes 900 HFE « StarLiner » a été présenté. Le drone est arrivé d’Israël dans un conteneur. Au total, l’armée disposera de...
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+          <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187044">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/diet-1949328_1280-pixel2013.jpg?itok=oIePZxIL 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-11/diet-1949328_1280-pixel2013.jpg?itok=76YZIms8 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/diet-1949328_1280-pixel2013.jpg?itok=oIePZxIL" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Je peux me tromper, mais... 
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Je peux me tromper, mais... 
+            
+
+          </span>          <a href="/node/1187044" class="link link-text"><span>Où vont les 88% de bonnes résolutions non tenues ?</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187044">
+                              <time datetime="2019-12-11T03:38:42Z">mer 11 décembre 2019 à 04:38</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Carla Hilber del Pozzo </strong></span>
+                                </p>
+
+                           <a href="/node/1187044">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-11/carla-e1565254218832-150x150.jpeg?itok=Qhx37YqX" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Fin d’année rime invariablement avec course collective éperdue vers le seuil du 31 décembre. Cela rime aussi avec les bilans professionnels et existentiels qui, à leur tour, débouchent sur les traditionnelles bonnes résolutions du jour de l’An. Vous ...
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187035">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/allais.jpeg?itok=x68ZC78b 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-11/allais.jpeg?itok=u6pTEe0O 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-11/allais.jpeg?itok=x68ZC78b" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Ça sonne
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Ça sonne
+            
+
+          </span>          <a href="/node/1187035" class="link link-text"><span>CHHHHT!</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187035">
+                              <time datetime="2019-12-10T23:32:45Z">mer 11 décembre 2019 à 00:32</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Philippe Simon </strong></span>
+                                </p>
+
+                           <a href="/node/1187035">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-11/simon-150x150.jpg?itok=KY7rTXm-" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                «Silence» est un mot qu'on dit souvent fort. Par exemple pour ramener au calme un groupe de gamins turbulents. Le silence n'est pas une absence – il peut même être pesant. Le silence, on l'impose, c'est une masse. Et paradoxalement,...
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+          <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187032">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/cropped-7624b1e9-df2a-4d70-97c6-ff15de61d957_fotor.jpg?itok=BNuXqksL 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-10/cropped-7624b1e9-df2a-4d70-97c6-ff15de61d957_fotor.jpg?itok=JzXuxP3q 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/cropped-7624b1e9-df2a-4d70-97c6-ff15de61d957_fotor.jpg?itok=BNuXqksL" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Le grain de sable
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Le grain de sable
+            
+
+          </span>          <a href="/node/1187032" class="link link-text"><span>Conseil fédéral: “l’arithmétique à Bonzon” des Verts</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187032">
+                              <time datetime="2019-12-10T19:25:03Z">mar 10 décembre 2019 à 20:25</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Suzette Sandoz </strong></span>
+                                </p>
+
+                           <a href="/node/1187032">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-10/suzette_sandoz-003_fotor-150x150.jpg?itok=Ffg-uNJ-" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Ce soir à nouveau, pendant les nouvelles à la télévision, on nous explique que si l’on maintient les deux sièges du PLR, aux dépens des Verts, il y aura une atteinte à la formule magique. Retour aux calculs Pendant la...
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1187008">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/brexit-4116928_1920.jpg?itok=qrTRS7J9 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-10/brexit-4116928_1920.jpg?itok=1k1Il-1J 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/brexit-4116928_1920.jpg?itok=qrTRS7J9" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                A propos de souverainisme non identitaire
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                A propos de souverainisme non identitaire
+            
+
+          </span>          <a href="/node/1187008" class="link link-text"><span>CH / UE / UK : de plus en plus systémique</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1187008">
+                              <time datetime="2019-12-10T16:09:48Z">mar 10 décembre 2019 à 17:09</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>François Schaller </strong></span>
+                                </p>
+
+                           <a href="/node/1187008">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-10/capture-decran-2019-10-22-a-16.18.27-150x150.png?itok=d60GXEs2" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Cette configuration à trois est entrée dans une nouvelle phase. La Suisse continue de ne pas vouloir en tenir compte. Les Suisses vont donc devoir voter à l’aveugle sur la deuxième initiative de l’UDC contre la libre circulation des personnes....
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+          <div class="row">
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1186975">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/800_5d246d4fcc39d_gunter_gunschel_stadthalle_in_weissenfels_project_1957_rect.jpg?itok=sDFdxrQw 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-10/800_5d246d4fcc39d_gunter_gunschel_stadthalle_in_weissenfels_project_1957_rect.jpg?itok=DbNenxhY 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/800_5d246d4fcc39d_gunter_gunschel_stadthalle_in_weissenfels_project_1957_rect.jpg?itok=sDFdxrQw" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Manuel pour habitants des villes
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Manuel pour habitants des villes
+            
+
+          </span>          <a href="/node/1186975" class="link link-text"><span>Solitudes à Orléans</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1186975">
+                              <time datetime="2019-12-10T14:42:48Z">mar 10 décembre 2019 à 15:42</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Christophe Catsaros </strong></span>
+                                </p>
+
+                           <a href="/node/1186975">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-10/catsa-150x150.jpg?itok=3G3yArZx" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Orléans n’est qu’à une heure de Paris. À l’époque d’Archilab — le rendez-vous annuel qui a fait la renommée du FRAC centre —, ce court voyage en train était de la même teneur que la manifestation : ni trop long,...
+                  </p>
+    </div>
+</div>
+</div>
+                  <div class="col-sm-12 col-md-6">  <div class="article-teaser">
+      <a class="article-figure" href="/node/1186945">
+        <div class="picture-label">
+            <figure class="picture picture-card picture-hover-effect">
+                                  <div class="ratio-responsive">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source media="all and (min-width: 992px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/cropped-imageentete.jpg?itok=qLVcmg0w 1x"/>
+              <source media="(min-width: 0px)" type="image/jpeg" data-srcset="https://assets.letemps.ch/sites/default/files/styles/90x70/public/blogs/2019-12-10/cropped-imageentete.jpg?itok=hUmwdl97 1x"/>
+            <!--[if IE 9]></video><![endif]-->
+              <img data-src="https://assets.letemps.ch/sites/default/files/styles/lt_article_full/public/blogs/2019-12-10/cropped-imageentete.jpg?itok=qLVcmg0w" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="b-lazy" style="max-width:100%" alt="" />
+
+  </picture>
+
+
+</div>
+                            </figure>
+
+            <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Noburnout
+            
+
+            </span>        </div>
+    </a>
+
+    <div class="article-excerpt">
+        <div class="spacer spacer-xs"></div>
+        <h3 class="no-margin h2">
+          <span class="label label-primary"><i class="fa fa-comment" aria-hidden="true"></i>
+    
+                                Noburnout
+            
+
+          </span>          <a href="/node/1186945" class="link link-text"><span>La gestion de stress des astronautes</span>
+</a>
+                  </h3>
+        <p class="small no-margin">
+            <a class="link link-muted square-char" href="/node/1186945">
+                              <time datetime="2019-12-10T13:41:01Z">mar 10 décembre 2019 à 14:41</time>
+
+                          </a>
+            <!-- • <span class="label label-default label-premium label-premium-md hidden-lg hidden-md hidden-sm">Abonné</span> -->
+
+                          <span class="square-char"><strong>Catherine Vasey </strong></span>
+                                </p>
+
+                           <a href="/node/1186945">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-10/screen-shot-2017-03-08-at-15.03.43-150x150.png?itok=VMN6oa8B" class="b-lazy bloggers-picture media-object img-circle">
+          </a>
+        
+        <p class="text-serif teaser-summary">
+                                Entretien avec Claude Nicollier,  astrophysicien et spationaute suisse de l’Agence spatiale européenne. Il devient en 1992 un des premiers européens dans l&#039;espace.   Avez-vous été fidèle à votre rêve d’enfant, devenir astronaute ? « On a marché sur l...
+                  </p>
+    </div>
+</div>
+</div>
+              </div>
+      </div>
+</div>
+
+    
+<ul class="js-pager__items pager" data-drupal-views-infinite-scroll-pager>
+  <li class="pager__item">
+    <a class="button btn btn-secondary" href="?page=1" title="Aller à la page suivante" rel="next nofollow">Voir plus de posts</a>
+  </li>
+</ul>
+
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+<div class="block block-views">
+  
+      <h2 class="section-title">Nos blogueurs</h2>
+    
+      <div class="views-element-container"><div class="bloggerlist js-view-dom-id-b479ac07c715b8854220a25cc62b8dda17b21da425275f9cb78d6b89eeb39f6d">
+  
+  
+  
+
+  
+  
+  
+
+        <h3>Entreprise</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/sofia-de-meyer/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-12/df99d29cbebd-portrait_blog-150x150.jpg?itok=vlvleKIO" class="media-object img-circle"  width="100" height="100"
+      alt="Sofia de Meyer">
+  
+  <div class="article-author small"><strong>Sofia de Meyer</strong></div>
+  <p class="link link-text small">Entreprendre en conscience, défis et réflexions</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/bernard-radon/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-20/radon_bernard_07lowres_2n9b1613-150x150.jpg?itok=O9kjB_td" class="media-object img-circle"  width="100" height="100"
+      alt="Bernard Radon">
+  
+  <div class="article-author small"><strong>Bernard Radon</strong></div>
+  <p class="link link-text small">Cinétiques stratégiques</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/lombard-odier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-26/lombard-150x150.png?itok=8_u_ZM9g" class="media-object img-circle"  width="100" height="100"
+      alt="Lombard Odier">
+  
+  <div class="article-author small"><strong>Lombard Odier</strong></div>
+  <p class="link link-text small">D&#039;entrepreneur à entrepreneur</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/lea-guillaumot/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-26/lea-150x150.jpg?itok=MTm9cjxi" class="media-object img-circle"  width="100" height="100"
+      alt="Léa Guillaumot">
+  
+  <div class="article-author small"><strong>Léa Guillaumot</strong></div>
+  <p class="link link-text small">L&#039;atelier coaching</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/marianne-schmid-mast/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-25/mar-150x150.jpg?itok=P2qGMsAF" class="media-object img-circle"  width="100" height="100"
+      alt="Marianne Schmid Mast">
+  
+  <div class="article-author small"><strong>Marianne Schmid Mast</strong></div>
+  <p class="link link-text small">Les interactions au travail</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/credit-suisse/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-04/willimann_3-150x150.jpg?itok=UXMhiiGp" class="media-object img-circle"  width="100" height="100"
+      alt="Michael Willimann">
+  
+  <div class="article-author small"><strong>Michael Willimann</strong></div>
+  <p class="link link-text small">Le temps d&#039;Entreprendre!</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/diana-serban/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-03/diane-150x150.jpg?itok=HWLqMAEZ" class="media-object img-circle"  width="100" height="100"
+      alt="Diana Serban">
+  
+  <div class="article-author small"><strong>Diana Serban</strong></div>
+  <p class="link link-text small">Tendances de la communication d&#039;entreprise</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/christophe-andreae/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-31/andrae-150x150.jpg?itok=ijV-K5Q9" class="media-object img-circle"  width="100" height="100"
+      alt="Christophe Andreae">
+  
+  <div class="article-author small"><strong>Christophe Andreae</strong></div>
+  <p class="link link-text small">Tribulations d&#039;un chasseur de têtes</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/jerome-gabriel/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/jerome-150x150.jpeg?itok=x3-WF_tZ" class="media-object img-circle"  width="100" height="100"
+      alt="Jérôme Gabriel">
+  
+  <div class="article-author small"><strong>Jérôme Gabriel</strong></div>
+  <p class="link link-text small">Sun Tzu parle aux dirigeants stratèges</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/cecile-laffont/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-29/ba2434fdcc70-cecile_laffont_pk-150x150.jpg?itok=ZXg_YfNo" class="media-object img-circle"  width="100" height="100"
+      alt="Cécile Laffont">
+  
+  <div class="article-author small"><strong>Cécile Laffont</strong></div>
+  <p class="link link-text small">Les Tendances RH</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/eglantine-jamet/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-24/jamet-150x150.jpg?itok=59fK686k" class="media-object img-circle"  width="100" height="100"
+      alt="Eglantine Jamet">
+  
+  <div class="article-author small"><strong>Eglantine Jamet</strong></div>
+  <p class="link link-text small">Contrepoint</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/elena-debbaut/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-18/elena-150x150.jpg?itok=hqwMLqH4" class="media-object img-circle"  width="100" height="100"
+      alt="Elena Debbaut">
+  
+  <div class="article-author small"><strong>Elena Debbaut</strong></div>
+  <p class="link link-text small">Toute une Affaire</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-3">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/clement-pichol-thievend/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-18/clement-150x150.jpg?itok=Vu2wGrBw" class="media-object img-circle"  width="100" height="100"
+      alt="Clément Pichol-Thievend">
+  
+  <div class="article-author small"><strong>Clément Pichol-Thievend</strong></div>
+  <p class="link link-text small">Leadership 2.0</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Suisse</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/jacques-neirynck/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-14/jac-150x150.jpg?itok=n12NjdRn" class="media-object img-circle"  width="100" height="100"
+      alt="Jacques Neirynck">
+  
+  <div class="article-author small"><strong>Jacques Neirynck</strong></div>
+  <p class="link link-text small">Une chronique politique sans parti pris</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/sami-kanaan/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-03/sami-150x150.jpg?itok=dp94vWwe" class="media-object img-circle"  width="100" height="100"
+      alt="Sami Kanaan">
+  
+  <div class="article-author small"><strong>Sami Kanaan</strong></div>
+  <p class="link link-text small">Genève ville créative</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/suzette-sandoz/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-23/suzette_sandoz-003_fotor-150x150.jpg?itok=qs8MPUCP" class="media-object img-circle"  width="100" height="100"
+      alt="Suzette Sandoz">
+  
+  <div class="article-author small"><strong>Suzette Sandoz</strong></div>
+  <p class="link link-text small">Le grain de sable</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/francois-schaller/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/schaller-150x150.jpg?itok=anlUw2Zl" class="media-object img-circle"  width="100" height="100"
+      alt="François Schaller">
+  
+  <div class="article-author small"><strong>François Schaller</strong></div>
+  <p class="link link-text small">A propos de souverainisme non identitaire</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/fabienne-freymond-cantone/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-09/frey-150x150.png?itok=qo5_rNmE" class="media-object img-circle"  width="100" height="100"
+      alt="Fabienne Freymond Cantone">
+  
+  <div class="article-author small"><strong>Fabienne Freymond Cantone</strong></div>
+  <p class="link link-text small">Regard politique sur les actualités</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/vania-alleva/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-03/vania-150x150.jpg?itok=0WX1Pjeq" class="media-object img-circle"  width="100" height="100"
+      alt="Vania Alleva">
+  
+  <div class="article-author small"><strong>Vania Alleva</strong></div>
+  <p class="link link-text small">Du travail en perspective</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/georges-martin/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/martin-150x150.jpg?itok=qvnLPRUQ" class="media-object img-circle"  width="100" height="100"
+      alt="Georges Martin">
+  
+  <div class="article-author small"><strong>Georges Martin</strong></div>
+  <p class="link link-text small">Politique étrangère: assez des apprentis sorciers</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/frederic-maillard/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-02/frederic_maillard-004-1_fotor-150x150.jpg?itok=-v-ORwG9" class="media-object img-circle"  width="100" height="100"
+      alt="Frédéric Maillard">
+  
+  <div class="article-author small"><strong>Frédéric Maillard</strong></div>
+  <p class="link link-text small">L&#039;observatoire des polices</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/guillaume-lammers/" target="_blank">
+      <img src="/sites/default/files/styles/thumbnail/public/blogs/2019-11-30/55d510f2e5d684f58c05f9f507719975s96dmmrg?itok=v2jzNukH" class="media-object img-circle"  width="100" height="100"
+      alt="Guillaume Lammers">
+  
+  <div class="article-author small"><strong>Guillaume Lammers</strong></div>
+  <p class="link link-text small">Chroniques constitutionnelles</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/pascal-gemperli/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-02/65a2516-150x150.jpg?itok=3v5WKQKF" class="media-object img-circle"  width="100" height="100"
+      alt="Pascal Gemperli">
+  
+  <div class="article-author small"><strong>Pascal Gemperli</strong></div>
+  <p class="link link-text small">1001 Suisses et une nation</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/sergio-belluz/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-05/screen-shot-2017-03-10-at-14.00.40-150x150.png?itok=pqTdIf9B" class="media-object img-circle"  width="100" height="100"
+      alt="Sergio Belluz">
+  
+  <div class="article-author small"><strong>Sergio Belluz</strong></div>
+  <p class="link link-text small">IdioCHyncrasies</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/rene-longet/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-29/screen-shot-2017-03-08-at-14.35.06-150x150.png?itok=wq6BUuf9" class="media-object img-circle"  width="100" height="100"
+      alt="René Longet">
+  
+  <div class="article-author small"><strong>René Longet</strong></div>
+  <p class="link link-text small">La Suisse et le monde</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-3">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/delphine-klopfenstein-broggini/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-17/del-150x150.jpeg?itok=4KCwQ7u2" class="media-object img-circle"  width="100" height="100"
+      alt="Delphine Klopfenstein Broggini">
+  
+  <div class="article-author small"><strong>Delphine Klopfenstein Broggini</strong></div>
+  <p class="link link-text small">Ecologie politique et égalité</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/luciana-vaccaro/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-07/luciana3-150x150.jpg?itok=rKtBbx59" class="media-object img-circle"  width="100" height="100"
+      alt="Luciana Vaccaro">
+  
+  <div class="article-author small"><strong>Luciana Vaccaro</strong></div>
+  <p class="link link-text small">Une haute école au plus près du terrain</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/oriane-engel/" target="_blank">
+      <img src="/sites/default/files/styles/thumbnail/public/blogs/2019-10-24/21bab10952ffe9317898e932f97784ces96dmmrg?itok=-xumIOXY" class="media-object img-circle"  width="100" height="100"
+      alt="Oriane Engel">
+  
+  <div class="article-author small"><strong>Oriane Engel</strong></div>
+  <p class="link link-text small">Demain: entre nos mains!</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/liliane-maury-pasquier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-17/liliane-150x150.jpg?itok=_uup7ev2" class="media-object img-circle"  width="100" height="100"
+      alt="Liliane Maury Pasquier">
+  
+  <div class="article-author small"><strong>Liliane Maury Pasquier</strong></div>
+  <p class="link link-text small">Retour de Berne... et de Strasbourg</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/johan-rochel/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-23/johan-150x150.png?itok=BcplmbR3" class="media-object img-circle"  width="100" height="100"
+      alt="Johan Rochel">
+  
+  <div class="article-author small"><strong>Johan Rochel</strong></div>
+  <p class="link link-text small">Une Suisse en mouvement</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/adele-thorens/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-27/screen-shot-2017-03-20-at-15.23.45-150x150.png?itok=1Z4-tHwr" class="media-object img-circle"  width="100" height="100"
+      alt="Adèle Thorens Goumaz">
+  
+  <div class="article-author small"><strong>Adèle Thorens Goumaz</strong></div>
+  <p class="link link-text small">Une lecture verte de l&#039;actualité politique </p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-4">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/alberto-mocchi/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/alberto-mocchi-150x150.jpg?itok=EqD2tFfZ" class="media-object img-circle"  width="100" height="100"
+      alt="Alberto Mocchi">
+  
+  <div class="article-author small"><strong>Alberto Mocchi</strong></div>
+  <p class="link link-text small">Des changements durables</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/martine-docourt/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-09/martine-1421-2-150x150.jpg?itok=auoqj_K2" class="media-object img-circle"  width="100" height="100"
+      alt="Martine Docourt">
+  
+  <div class="article-author small"><strong>Martine Docourt</strong></div>
+  <p class="link link-text small">Vous avez dit durable?</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/jaccoud-alder/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/capture-decran-2019-07-16-a-22.54.32-150x150.png?itok=GIDKxCY7" class="media-object img-circle"  width="100" height="100"
+      alt="Murat Julian Alder">
+  
+  <div class="article-author small"><strong>Murat Julian Alder</strong></div>
+  <p class="link link-text small">On en reparle autour d’un café?</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/carole-furrer/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-08/facebook_cf_recherche2-01-e1560869198983-150x150.png?itok=q9EWJnpn" class="media-object img-circle"  width="100" height="100"
+      alt="Carole Furrer">
+  
+  <div class="article-author small"><strong>Carole Furrer</strong></div>
+  <p class="link link-text small">Rose ou bleu, les stéréotypes ont la vie dure!</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/jaccoud-alder/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-01/jessica-150x150.jpg?itok=IpbUYmqB" class="media-object img-circle"  width="100" height="100"
+      alt="Jessica Jaccoud">
+  
+  <div class="article-author small"><strong>Jessica Jaccoud</strong></div>
+  <p class="link link-text small">On en reparle autour d’un café?</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Monde</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/christian-jacot-descombes/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-28/christi-150x150.jpg?itok=Sv3EskSX" class="media-object img-circle"  width="100" height="100"
+      alt="Christian Jacot-Descombes">
+  
+  <div class="article-author small"><strong>Christian Jacot-Descombes</strong></div>
+  <p class="link link-text small">Mon oeil</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/isolda-agazzi/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/isolda-150x150.jpg?itok=x-S1rhax" class="media-object img-circle"  width="100" height="100"
+      alt="Isolda Agazzi">
+  
+  <div class="article-author small"><strong>Isolda Agazzi</strong></div>
+  <p class="link link-text small">Lignes d&#039;horizon</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/etats-unis/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-15/val-150x150.jpg?itok=dZ7vtOR1" class="media-object img-circle"  width="100" height="100"
+      alt="Valérie de Graffenried">
+  
+  <div class="article-author small"><strong>Valérie de Graffenried</strong></div>
+  <p class="link link-text small">Les Américains</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/jasmine-caye/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/jasmine-150x150.jpeg?itok=F1ixqsXX" class="media-object img-circle"  width="100" height="100"
+      alt="Jasmine Caye">
+  
+  <div class="article-author small"><strong>Jasmine Caye</strong></div>
+  <p class="link link-text small">Le temps des réfugiés</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/gilbert-casasus/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-02/screen-shot-2017-03-08-at-17.45.25-150x150.png?itok=XvN9vWHG" class="media-object img-circle"  width="100" height="100"
+      alt="Gilbert Casasus">
+  
+  <div class="article-author small"><strong>Gilbert Casasus</strong></div>
+  <p class="link link-text small">Politique européenne</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/ola-soederstroem/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-29/ola_sodestrom-003_fotor-150x150.jpg?itok=lUzHWVtH" class="media-object img-circle"  width="100" height="100"
+      alt="Ola Söderström">
+  
+  <div class="article-author small"><strong>Ola Söderström</strong></div>
+  <p class="link link-text small">Villes en mouvement</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/julien-grange/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-25/mrn7057-150x150.jpg?itok=0sdyCOd3" class="media-object img-circle"  width="100" height="100"
+      alt="Julien Grange">
+  
+  <div class="article-author small"><strong>Julien Grange</strong></div>
+  <p class="link link-text small">SWISS SHIFT</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/olivier-meuwly/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-19/screen-shot-2017-03-08-at-14.45.49-150x150.png?itok=60wx-67u" class="media-object img-circle"  width="100" height="100"
+      alt="Olivier Meuwly">
+  
+  <div class="article-author small"><strong>Olivier Meuwly</strong></div>
+  <p class="link link-text small">Le scalpel de l&#039;histoire</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/antoine-schaub/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-19/les_internautes-049-150x150.jpg?itok=5hc-1rzM" class="media-object img-circle"  width="100" height="100"
+      alt="Antoine Schaub">
+  
+  <div class="article-author small"><strong>Antoine Schaub</strong></div>
+  <p class="link link-text small">Le monde par les mots</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/michel-porret/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-17/poret-150x150.png?itok=tDiJzBGE" class="media-object img-circle"  width="100" height="100"
+      alt="Michel Porret">
+  
+  <div class="article-author small"><strong>Michel Porret</strong></div>
+  <p class="link link-text small">La ligne de mire</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/christine-von-garnier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-17/christne_von_garnier-004_fotor-150x150.jpg?itok=AS8wrT-v" class="media-object img-circle"  width="100" height="100"
+      alt="Christine von Garnier">
+  
+  <div class="article-author small"><strong>Christine von Garnier</strong></div>
+  <p class="link link-text small">L&#039;Afrique dans le tumulte du XXIe siècle</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/samson-yemane/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-11/sami-2-150x150.jpg?itok=YQBmZdPf" class="media-object img-circle"  width="100" height="100"
+      alt="Samson Yemane">
+  
+  <div class="article-author small"><strong>Samson Yemane</strong></div>
+  <p class="link link-text small">Le temps de la «conscientisation»</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-3">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/antoine-roth/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-01/screen-shot-2017-03-08-at-12.27.18-150x150.png?itok=iau5cIz2" class="media-object img-circle"  width="100" height="100"
+      alt="Antoine Roth">
+  
+  <div class="article-author small"><strong>Antoine Roth</strong></div>
+  <p class="link link-text small">Autour du Japon</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/ludovic-chevalier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-28/ludovic-150x150.jpeg?itok=pElhAWLl" class="media-object img-circle"  width="100" height="100"
+      alt="Ludovic Chevalier">
+  
+  <div class="article-author small"><strong>Ludovic Chevalier</strong></div>
+  <p class="link link-text small">Au coeur de l&#039;Amerique</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/mohammad-mahmoud-ould-mohamedou/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-18/c803e36282b3aa8b9c3a6e59fb4d21601-150x150.jpg?itok=ipERs0Ge" class="media-object img-circle"  width="100" height="100"
+      alt="Mohammad-Mahmoud Ould Mohamedou">
+  
+  <div class="article-author small"><strong>Mohammad-Mahmoud Ould Mohamedou</strong></div>
+  <p class="link link-text small">Les temps du Moyen-Orient</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/etienne-piguet/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/ekm_702-150x150.jpg?itok=ka3RApTW" class="media-object img-circle"  width="100" height="100"
+      alt="Etienne Piguet">
+  
+  <div class="article-author small"><strong>Etienne Piguet</strong></div>
+  <p class="link link-text small">Politique migratoire</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Culture</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="http://blogs.letemps.ch/dunia-miralles/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/fleur-150x150.jpg?itok=GT-08lj7" class="media-object img-circle"  width="100" height="100"
+      alt="Dunia Miralles">
+  
+  <div class="article-author small"><strong>Dunia Miralles</strong></div>
+  <p class="link link-text small">Des avenues et des fleurs</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/philippe-simon/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-01/simon-150x150.jpg?itok=dpTfsjNK" class="media-object img-circle"  width="100" height="100"
+      alt="Philippe Simon">
+  
+  <div class="article-author small"><strong>Philippe Simon</strong></div>
+  <p class="link link-text small">Ça sonne</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/sebastien-beaujault/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-12/seb-150x150.jpg?itok=s4_7KEEY" class="media-object img-circle"  width="100" height="100"
+      alt="Sebastien Beaujault">
+  
+  <div class="article-author small"><strong>Sebastien Beaujault</strong></div>
+  <p class="link link-text small">A vos marques... pages</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/christophe-vuilleumier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-11/screen-shot-2017-03-23-at-16.42.39-150x150.png?itok=M7WjK6vB" class="media-object img-circle"  width="100" height="100"
+      alt="Christophe Vuilleumier">
+  
+  <div class="article-author small"><strong>Christophe Vuilleumier</strong></div>
+  <p class="link link-text small">Les paradigmes du temps</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/joelle-gagliardini/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-15/joelle-150x150.png?itok=FVuY8bFV" class="media-object img-circle"  width="100" height="100"
+      alt="Joëlle Gagliardini">
+  
+  <div class="article-author small"><strong>Joëlle Gagliardini</strong></div>
+  <p class="link link-text small">Passe par les théâtres</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/dominique-de-la-barre/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/de_la_barre_dominique_2012_o9f6596d_schiller_myimage-150x150.jpg?itok=26_mXz6X" class="media-object img-circle"  width="100" height="100"
+      alt="Dominique de la Barre">
+  
+  <div class="article-author small"><strong>Dominique de la Barre</strong></div>
+  <p class="link link-text small">La Ligne Claire</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/martin-morend/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-28/te-150x150.jpg?itok=oAFpytcX" class="media-object img-circle"  width="100" height="100"
+      alt="Martin Morend">
+  
+  <div class="article-author small"><strong>Martin Morend</strong></div>
+  <p class="link link-text small">Penser le cinéma</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/istituto-svizzero/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-18/istituto-150x150.png?itok=ZaJLvtv4" class="media-object img-circle"  width="100" height="100"
+      alt="Istituto Svizzero">
+  
+  <div class="article-author small"><strong>Istituto Svizzero</strong></div>
+  <p class="link link-text small">Arts et sciences en Italie</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/mireille-descombes/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-05/mireille-150x150.jpg?itok=6s8hh0S0" class="media-object img-circle"  width="100" height="100"
+      alt="Mireille Descombes">
+  
+  <div class="article-author small"><strong>Mireille Descombes</strong></div>
+  <p class="link link-text small">Polars, Polis et Cie</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/albane-schlechten/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-14/albane-150x150.jpg?itok=KFKhUB8y" class="media-object img-circle"  width="100" height="100"
+      alt="Albane Schlechten">
+  
+  <div class="article-author small"><strong>Albane Schlechten</strong></div>
+  <p class="link link-text small">Pop, rock musiques et politique</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/antonino-galofaro/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-21/galo-150x150.jpg?itok=f4zTLP1W" class="media-object img-circle"  width="100" height="100"
+      alt="Antonino Galofaro">
+  
+  <div class="article-author small"><strong>Antonino Galofaro</strong></div>
+  <p class="link link-text small">La dolce vita</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/arthur-simondin/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-09/arthur-simondin-dessin-mail-150x150.jpg?itok=ITSMZWxW" class="media-object img-circle"  width="100" height="100"
+      alt="Arthur Simondin">
+  
+  <div class="article-author small"><strong>Arthur Simondin</strong></div>
+  <p class="link link-text small">L&#039;Empire des signes</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-3">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/richard-emmanuel-eastes/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-17/richard-150x150.jpg?itok=w43AdK4X" class="media-object img-circle"  width="100" height="100"
+      alt="Richard-Emmanuel Eastes">
+  
+  <div class="article-author small"><strong>Richard-Emmanuel Eastes</strong></div>
+  <p class="link link-text small">Savoirs en société</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/nadia-cattoni/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-02/3530be87b195-photo-150x150.jpg?itok=1nFxva76" class="media-object img-circle"  width="100" height="100"
+      alt="Nadia Cattoni">
+  
+  <div class="article-author small"><strong>Nadia Cattoni</strong></div>
+  <p class="link link-text small">Inde: Arts &amp; Lettres</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/philippe-meier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-30/mei-150x150.png?itok=-vu-4OXX" class="media-object img-circle"  width="100" height="100"
+      alt="Philippe Meier">
+  
+  <div class="article-author small"><strong>Philippe Meier</strong></div>
+  <p class="link link-text small">Architextuel</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/laetitia-bernardinelli/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-28/prophil-150x150.jpg?itok=ZUIdoMfH" class="media-object img-circle"  width="100" height="100"
+      alt="Laetitia Bernardinelli">
+  
+  <div class="article-author small"><strong>Laetitia Bernardinelli</strong></div>
+  <p class="link link-text small">proPhilo</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Lifestyle</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/joy-kundig/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-07/joy_kundig-001-2_fotor-150x150.jpg?itok=oG0Y2O98" class="media-object img-circle"  width="100" height="100"
+      alt="Joy Kundig">
+  
+  <div class="article-author small"><strong>Joy Kundig</strong></div>
+  <p class="link link-text small">The Perpetual Tourist</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/philippe-le-be/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-15/screen-shot-2017-03-08-at-10.50.48-150x150.png?itok=FOO7bBAC" class="media-object img-circle"  width="100" height="100"
+      alt="Philippe Le Bé">
+  
+  <div class="article-author small"><strong>Philippe Le Bé</strong></div>
+  <p class="link link-text small">La vie autrement</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/valerie-sandoz/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-04/valeriesandoz-150x150.jpeg?itok=CUQwtdMw" class="media-object img-circle"  width="100" height="100"
+      alt="Valérie Sandoz">
+  
+  <div class="article-author small"><strong>Valérie Sandoz</strong></div>
+  <p class="link link-text small">Zero déchet, en route vers un nouveau mode de vie!</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/niels-rodin/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-22/niels1-150x150.jpg?itok=y1i7WD-L" class="media-object img-circle"  width="100" height="100"
+      alt="Niels Rodin">
+  
+  <div class="article-author small"><strong>Niels Rodin</strong></div>
+  <p class="link link-text small">Agrumes d&#039;ici et d&#039;ailleurs</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/olivier-le-naire/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-08/457ea664e1dd-photo_olivier_le_naire-150x150.jpg?itok=xpmQh5Pm" class="media-object img-circle"  width="100" height="100"
+      alt="Olivier Le Naire">
+  
+  <div class="article-author small"><strong>Olivier Le Naire</strong></div>
+  <p class="link link-text small">C&#039;est ma tournée!</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/alexandre-gaertner/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-25/dsc_3508-150x150.jpg?itok=LhjME7zV" class="media-object img-circle"  width="100" height="100"
+      alt="Alexandre Gaertner">
+  
+  <div class="article-author small"><strong>Alexandre Gaertner</strong></div>
+  <p class="link link-text small">Destination Pacifique</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/yannick-rochat/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/09_yannick_rochat_72dpi_dsc_7967csliphardt-150x150.jpg?itok=B1rpYo5e" class="media-object img-circle"  width="100" height="100"
+      alt="Yannick Rochat">
+  
+  <div class="article-author small"><strong>Yannick Rochat</strong></div>
+  <p class="link link-text small">Jeux et société</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Économie</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/claudine-amstein/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-18/claudine-amstein_directrice-cvci-150x150.jpg?itok=TJnM8QG4" class="media-object img-circle"  width="100" height="100"
+      alt="Claudine Amstein">
+  
+  <div class="article-author small"><strong>Claudine Amstein</strong></div>
+  <p class="link link-text small">Les entreprises, aujourd’hui et demain</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/pierre-novello/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-25/screen-shot-2017-03-08-at-15.48.51-150x150.png?itok=bNZSNChf" class="media-object img-circle"  width="100" height="100"
+      alt="Pierre Novello">
+  
+  <div class="article-author small"><strong>Pierre Novello</strong></div>
+  <p class="link link-text small">L’économie en clair</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/raphael-rollier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/raph-150x150.jpg?itok=yW0sbu1O" class="media-object img-circle"  width="100" height="100"
+      alt="Raphael Rollier">
+  
+  <div class="article-author small"><strong>Raphael Rollier</strong></div>
+  <p class="link link-text small">Vers une économie numérique</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/olivier-muller/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-20/mull-150x150.jpg?itok=iNBzsMt1" class="media-object img-circle"  width="100" height="100"
+      alt="Oliver Muller">
+  
+  <div class="article-author small"><strong>Oliver Muller</strong></div>
+  <p class="link link-text small">Le sablier</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/laurent-horvath/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/screen-shot-2017-03-09-at-17.38.11-150x150.png?itok=_Yo8-wy_" class="media-object img-circle"  width="100" height="100"
+      alt="Laurent Horvath">
+  
+  <div class="article-author small"><strong>Laurent Horvath</strong></div>
+  <p class="link link-text small">Géopolitique Mondiale des Energies</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/sergio-rossi/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/screen-shot-2017-03-08-at-11.40.54-150x150.png?itok=qn2YgEln" class="media-object img-circle"  width="100" height="100"
+      alt="Sergio Rossi">
+  
+  <div class="article-author small"><strong>Sergio Rossi</strong></div>
+  <p class="link link-text small">Les non-dits de l&#039;économie</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/romande-energie/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-02/logo-150x150.png?itok=x2ZjNn45" class="media-object img-circle"  width="100" height="100"
+      alt="Romande Energie">
+  
+  <div class="article-author small"><strong>Romande Energie</strong></div>
+  <p class="link link-text small">Questions d&#039;énergie</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/derham/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-11/morard-150x150.jpg?itok=o0jO55Vn" class="media-object img-circle"  width="100" height="100"
+      alt="deRham">
+  
+  <div class="article-author small"><strong>deRham</strong></div>
+  <p class="link link-text small">Tout l&#039;immobilier sous un même toit</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/cedric-tille/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-10/tille-150x150.png?itok=Nka6Bpbk" class="media-object img-circle"  width="100" height="100"
+      alt="Cédric Tille">
+  
+  <div class="article-author small"><strong>Cédric Tille</strong></div>
+  <p class="link link-text small">L’économie déchiffrée</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/samuel-bendahan/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-24/screen-shot-2017-03-08-at-17.48.46-150x150.png?itok=oKRNTNAM" class="media-object img-circle"  width="100" height="100"
+      alt="Samuel Bendahan">
+  
+  <div class="article-author small"><strong>Samuel Bendahan</strong></div>
+  <p class="link link-text small">L&#039;économie pour tout le monde</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/vincent-kaufmann/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-24/vincentkaufmann-150x150.jpg?itok=Jpv9k-q3" class="media-object img-circle"  width="100" height="100"
+      alt="Vincent Kaufmann">
+  
+  <div class="article-author small"><strong>Vincent Kaufmann</strong></div>
+  <p class="link link-text small">L&#039;actualité de l&#039;ISR et de la bonne gouvernance</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/lombard-odier/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/bloggers/lombart_avatar.jpg?itok=LUeRTIJn" class="media-object img-circle"  width="100" height="100"
+      alt="Lombard Odier">
+  
+  <div class="article-author small"><strong>Lombard Odier</strong></div>
+  <p class="link link-text small">D&#039;entrepreneur à entrepreneur</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-3">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/philippe-labouchere/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-20/philippe-labouchere-150x150.jpg?itok=Ujzu-g86" class="media-object img-circle"  width="100" height="100"
+      alt="Philippe Labouchère, Ph.D.">
+  
+  <div class="article-author small"><strong>Philippe Labouchère, Ph.D.</strong></div>
+  <p class="link link-text small">Carnets de l&#039;innovation</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Sciences</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/dorota-retelska/" target="_blank">
+      <img src="/sites/default/files/styles/thumbnail/public/blogs/2019-09-16/94640df183d1fd52ec87121986fbe357s96dmmrg?itok=zZbKrjWv" class="media-object img-circle"  width="100" height="100"
+      alt="Dorota Retelska">
+  
+  <div class="article-author small"><strong>Dorota Retelska</strong></div>
+  <p class="link link-text small">Le climat aujourd&#039;hui et demain</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/pierre-brisson/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-21/pierre_brisson-002-150x150.jpg?itok=LJUpXsDU" class="media-object img-circle"  width="100" height="100"
+      alt="Pierre Brisson">
+  
+  <div class="article-author small"><strong>Pierre Brisson</strong></div>
+  <p class="link link-text small">Exploration spatiale</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/nathalie-chevre/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-03/nathaliechevre-150x150.jpg?itok=gaB54ZSU" class="media-object img-circle"  width="100" height="100"
+      alt="Nathalie Chèvre">
+  
+  <div class="article-author small"><strong>Nathalie Chèvre</strong></div>
+  <p class="link link-text small">Petite chimie du quotidien</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/franci-saucy/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-15/francis_saucy4_fotor-150x150.jpg?itok=Z1VNtVqf" class="media-object img-circle"  width="100" height="100"
+      alt="Francis Saucy">
+  
+  <div class="article-author small"><strong>Francis Saucy</strong></div>
+  <p class="link link-text small">Et si les abeilles...</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/augustin-fragniere/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-14/augustinfra-150x150.jpg?itok=hPC99Y7m" class="media-object img-circle"  width="100" height="100"
+      alt="Augustin Fragniere">
+  
+  <div class="article-author small"><strong>Augustin Fragniere</strong></div>
+  <p class="link link-text small">Une seule Terre</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/valentine-python/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-18/val-150x150.jpg?itok=HdX64eZS" class="media-object img-circle"  width="100" height="100"
+      alt="Valentine Python">
+  
+  <div class="article-author small"><strong>Valentine Python</strong></div>
+  <p class="link link-text small">Climat, Environnement et Santé</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/valerie-mausner-leger/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-10/cdb1f2f4a276-headshot_valerie_mausner_par_patric_pop_photo_geneve_574_web-150x150.jpg?itok=Bl_mKBPa" class="media-object img-circle"  width="100" height="100"
+      alt="Valérie Mausner Leger">
+  
+  <div class="article-author small"><strong>Valérie Mausner Leger</strong></div>
+  <p class="link link-text small">50 nuances de vert</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Technologies</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/pascal-kuemmerling/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-15/planche-contact-006-copie-150x150.jpg?itok=npKZvfNI" class="media-object img-circle"  width="100" height="100"
+      alt="Pascal Kümmerling">
+  
+  <div class="article-author small"><strong>Pascal Kümmerling</strong></div>
+  <p class="link link-text small">Des ailes et des hélices</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/emily-turrettini/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-22/screen-shot-2017-03-23-at-15.11.21-150x150.png?itok=0ZJ0Bb87" class="media-object img-circle"  width="100" height="100"
+      alt="Emily Turrettini">
+  
+  <div class="article-author small"><strong>Emily Turrettini</strong></div>
+  <p class="link link-text small">Tendances Web</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/gaelle-rey/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-06/photo-generique-150x150.png?itok=FlLpOY4k" class="media-object img-circle"  width="100" height="100"
+      alt="Gaëlle Rey">
+  
+  <div class="article-author small"><strong>Gaëlle Rey</strong></div>
+  <p class="link link-text small">Curiosités Technologiques</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/jerome-duberry/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-28/jerome-150x150.jpg?itok=2U8gMl7W" class="media-object img-circle"  width="100" height="100"
+      alt="Jérôme Duberry">
+  
+  <div class="article-author small"><strong>Jérôme Duberry</strong></div>
+  <p class="link link-text small">Technologies numériques et politique</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/daniel-mange/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-01/daniel-150x150.jpg?itok=5tbSkl7z" class="media-object img-circle"  width="100" height="100"
+      alt="Daniel Mange">
+  
+  <div class="article-author small"><strong>Daniel Mange</strong></div>
+  <p class="link link-text small">Mobilité tous azimuts</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/claire-clivaz/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-27/891115-150x150.jpg?itok=stTkjvHs" class="media-object img-circle"  width="100" height="100"
+      alt="Claire Clivaz">
+  
+  <div class="article-author small"><strong>Claire Clivaz</strong></div>
+  <p class="link link-text small">A Temps et à contre-Temps</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="http://blogs.letemps.ch/solange-ghernaouti/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-24/solange-150x150.jpg?itok=ofBRSj40" class="media-object img-circle"  width="100" height="100"
+      alt="Solange Ghernaouti">
+  
+  <div class="article-author small"><strong>Solange Ghernaouti</strong></div>
+  <p class="link link-text small">Cybersécurité</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Société</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/carla-hilber-del-pozzo/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-26/carla-e1565254218832-150x150.jpeg?itok=ZcRo7_4f" class="media-object img-circle"  width="100" height="100"
+      alt="Carla Hilber del Pozzo">
+  
+  <div class="article-author small"><strong>Carla Hilber del Pozzo</strong></div>
+  <p class="link link-text small">Je peux me tromper, mais... </p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/christophe-catsaros/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-16/catsa-150x150.jpg?itok=YgYSMil8" class="media-object img-circle"  width="100" height="100"
+      alt="Christophe Catsaros">
+  
+  <div class="article-author small"><strong>Christophe Catsaros</strong></div>
+  <p class="link link-text small">Manuel pour habitants des villes</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/catherine-vasey/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-10/screen-shot-2017-03-08-at-15.03.43-150x150.png?itok=VMN6oa8B" class="media-object img-circle"  width="100" height="100"
+      alt="Catherine Vasey">
+  
+  <div class="article-author small"><strong>Catherine Vasey</strong></div>
+  <p class="link link-text small">Noburnout</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/silvia-ricci-lempen/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-27/sil-150x150.jpg?itok=-Z1PiViD" class="media-object img-circle"  width="100" height="100"
+      alt="Silvia Ricci Lempen">
+  
+  <div class="article-author small"><strong>Silvia Ricci Lempen</strong></div>
+  <p class="link link-text small">Imaginaires</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="http://blogs.letemps.ch/myriam-duc/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-08/myriam-150x150.jpg?itok=zv0Ir6ln" class="media-object img-circle"  width="100" height="100"
+      alt="Myriam Duc">
+  
+  <div class="article-author small"><strong>Myriam Duc</strong></div>
+  <p class="link link-text small">La rage au coeur, itinéraire d&#039;une cabossée</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/philippe-furrer/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-08/furrer-150x150.jpg?itok=M3PzfcFR" class="media-object img-circle"  width="100" height="100"
+      alt="Philippe Furrer">
+  
+  <div class="article-author small"><strong>Philippe Furrer</strong></div>
+  <p class="link link-text small">Sédentarité et société, la course aux idées</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-2">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/gilles-adrian/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-07/gilles-150x150.jpg?itok=Mr0aKtuL" class="media-object img-circle"  width="100" height="100"
+      alt="Gilles Adrian">
+  
+  <div class="article-author small"><strong>Gilles Adrian</strong></div>
+  <p class="link link-text small">Chroniques de Charclo</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/garry-littman/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-17/8d9d179583e7-garry_1_002_-150x150.jpg?itok=c8M9TPl_" class="media-object img-circle"  width="100" height="100"
+      alt="Garry Littman">
+  
+  <div class="article-author small"><strong>Garry Littman</strong></div>
+  <p class="link link-text small">Et maintenant in English</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/viktorie-skvarkova/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-12-06/vikto-150x150.jpg?itok=cZkpTwPA" class="media-object img-circle"  width="100" height="100"
+      alt="Viktorie Škvarková">
+  
+  <div class="article-author small"><strong>Viktorie Škvarková</strong></div>
+  <p class="link link-text small">Éducation durable</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/veronique-dreyfuss-pagano/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-26/screen-shot-2017-03-08-at-14.48.40-150x150.png?itok=4gmvIDOm" class="media-object img-circle"  width="100" height="100"
+      alt="Véronique Dreyfuss-Pagano">
+  
+  <div class="article-author small"><strong>Véronique Dreyfuss-Pagano</strong></div>
+  <p class="link link-text small">Les pieds sur Terre</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/anne-marie-van-rampaey/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-26/ava-150x150.jpg?itok=Hpj-B_e2" class="media-object img-circle"  width="100" height="100"
+      alt="Anne-Marie Van Rampaey">
+  
+  <div class="article-author small"><strong>Anne-Marie Van Rampaey</strong></div>
+  <p class="link link-text small">Les facettes humaines</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/emmanuelle-robert/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-28/b887d82b684f-2016_erobert_photo_portrait-150x150.jpg?itok=8hKU67PK" class="media-object img-circle"  width="100" height="100"
+      alt="Emmanuelle Robert">
+  
+  <div class="article-author small"><strong>Emmanuelle Robert</strong></div>
+  <p class="link link-text small">D&#039;ici et d&#039;ailleurs</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-3">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/breves-de-psys/" target="_blank">
+      <img src="/sites/default/files/styles/thumbnail/public/blogs/2019-10-17/539705aa3d97237181f4bc8270a196b3s96dmmrg?itok=4mLj5JQs" class="media-object img-circle"  width="100" height="100"
+      alt="Thomas Noyer">
+  
+  <div class="article-author small"><strong>Thomas Noyer</strong></div>
+  <p class="link link-text small">Brèves de psys</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/jacqueline-jencquel/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-24/pic-jj-150x150.jpg?itok=pZgpTQG5" class="media-object img-circle"  width="100" height="100"
+      alt="Jacqueline Jencquel">
+  
+  <div class="article-author small"><strong>Jacqueline Jencquel</strong></div>
+  <p class="link link-text small">La vieillesse est une maladie incurable</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/fabrice-dini/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-18/fabricedini-150x150.jpg?itok=K-v_Mx3N" class="media-object img-circle"  width="100" height="100"
+      alt="Fabrice Dini">
+  
+  <div class="article-author small"><strong>Fabrice Dini</strong></div>
+  <p class="link link-text small">Passé - Présent - Futur</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/david-matthey-doret/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-08/david-matthey-doret-150x150.jpg?itok=HaW-XWYa" class="media-object img-circle"  width="100" height="100"
+      alt="David Matthey-Doret">
+  
+  <div class="article-author small"><strong>David Matthey-Doret</strong></div>
+  <p class="link link-text small">Nouveau Paradigme</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/irene-dutoit/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-03/photo_inscription-150x150.jpg?itok=gSny9r4h" class="media-object img-circle"  width="100" height="100"
+      alt="Irène Dutoit">
+  
+  <div class="article-author small"><strong>Irène Dutoit</strong></div>
+  <p class="link link-text small">Le bazar du présent</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="https://blogs.letemps.ch/alexis-burger/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-02/alexisburger-150x150.jpg?itok=YdJ-2yTZ" class="media-object img-circle"  width="100" height="100"
+      alt="Alexis Burger">
+  
+  <div class="article-author small"><strong>Alexis Burger</strong></div>
+  <p class="link link-text small">Le défi masculin</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-4">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/thomas-noyer/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-25/thomas-150x150.jpg?itok=KIEY6LoH" class="media-object img-circle"  width="100" height="100"
+      alt="Thomas Noyer">
+  
+  <div class="article-author small"><strong>Thomas Noyer</strong></div>
+  <p class="link link-text small">Regards psy</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/jean-tschopp/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-04/jean-150x150.png?itok=JRJkul5d" class="media-object img-circle"  width="100" height="100"
+      alt="Jean Tschopp">
+  
+  <div class="article-author small"><strong>Jean Tschopp</strong></div>
+  <p class="link link-text small">Changement et politique</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/jeremy-savioz/" target="_blank">
+      <img src="/sites/default/files/styles/thumbnail/public/blogs/2019-10-28/9e473d66cf91c1fae3f26207311e0b7cs96dmmrg?itok=8Vin5tEk" class="media-object img-circle"  width="100" height="100"
+      alt="Jérémy Savioz">
+  
+  <div class="article-author small"><strong>Jérémy Savioz</strong></div>
+  <p class="link link-text small">Des paroles aux actes</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/marc-muenster/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-21/04_marc_muenster_72dpi_dsc_7916csliphardt-150x150.jpg?itok=P7T8JrKG" class="media-object img-circle"  width="100" height="100"
+      alt="Marc Münster">
+  
+  <div class="article-author small"><strong>Marc Münster</strong></div>
+  <p class="link link-text small">Les chroniques du #FerARepasser</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-5">
+            <a href="https://blogs.letemps.ch/gregory-staehli/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-17/a1a2324925d1-29468838623_da2f682a3f_o-150x150.jpg?itok=TJ2e0abz" class="media-object img-circle"  width="100" height="100"
+      alt="Gregory">
+  
+  <div class="article-author small"><strong>Gregory</strong></div>
+  <p class="link link-text small">Liens durables</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-6">
+            <a href="http://blogs.letemps.ch/lisa-dubin/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-10/lisa-150x150.png?itok=Em0xayHJ" class="media-object img-circle"  width="100" height="100"
+      alt="Lisa Dubin">
+  
+  <div class="article-author small"><strong>Lisa Dubin</strong></div>
+  <p class="link link-text small">STOP SUICIDE</p>
+</a>
+
+
+          </div>
+              </div>
+          <div class="row views-row clearfix row-5">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/stephen-vasey/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-04/ves2-150x150.jpg?itok=0OoSXHMl" class="media-object img-circle"  width="100" height="100"
+      alt="Stephen Vasey">
+  
+  <div class="article-author small"><strong>Stephen Vasey</strong></div>
+  <p class="link link-text small">Les Chantiers du Couple</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/francine-pellaud/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-21/pellaud-150x150.jpeg?itok=kzohQNjU" class="media-object img-circle"  width="100" height="100"
+      alt="Francine Pellaud">
+  
+  <div class="article-author small"><strong>Francine Pellaud</strong></div>
+  <p class="link link-text small">Et si nous parlions d&#039;école?</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Justice</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/veronique-fontana/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-24/veroniquefontana-150x150.jpg?itok=TEipAsHb" class="media-object img-circle"  width="100" height="100"
+      alt="Veronique Fontana">
+  
+  <div class="article-author small"><strong>Veronique Fontana</strong></div>
+  <p class="link link-text small">La justice chevaleresque</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/manon-schick/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-30/manon-150x150.jpg?itok=2_9NN9cB" class="media-object img-circle"  width="100" height="100"
+      alt="Manon Schick">
+  
+  <div class="article-author small"><strong>Manon Schick</strong></div>
+  <p class="link link-text small">Droits humains</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/miriam-mazou/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-28/mazou-150x150.jpg?itok=14D3s-Lr" class="media-object img-circle"  width="100" height="100"
+      alt="Miriam Mazou">
+  
+  <div class="article-author small"><strong>Miriam Mazou</strong></div>
+  <p class="link link-text small">Affaires de droit</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/anais-brodard/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-18/anais-150x150.jpg?itok=1f3XRYbQ" class="media-object img-circle"  width="100" height="100"
+      alt="Anais Brodard">
+  
+  <div class="article-author small"><strong>Anais Brodard</strong></div>
+  <p class="link link-text small">Affaires de famille</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Santé</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/dr-jean-gabriel-jeannot/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-25/capture-decran-2016-01-27-a-11.01.30-150x150.png?itok=Ip3LSTJn" class="media-object img-circle"  width="100" height="100"
+      alt="Dr Jean Gabriel Jeannot">
+  
+  <div class="article-author small"><strong>Dr Jean Gabriel Jeannot</strong></div>
+  <p class="link link-text small">La santé (autrement)</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="https://blogs.letemps.ch/aude-bertoli/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-24/aude-150x150.jpg?itok=TFMUuYSU" class="media-object img-circle"  width="100" height="100"
+      alt="Aude Bertoli">
+  
+  <div class="article-author small"><strong>Aude Bertoli</strong></div>
+  <p class="link link-text small">Naufrage</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="https://blogs.letemps.ch/boris-gojanovic/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-14/boris-profile-coudes-150x150.jpg?itok=Sqh0OYUy" class="media-object img-circle"  width="100" height="100"
+      alt="Boris Gojanovic">
+  
+  <div class="article-author small"><strong>Boris Gojanovic</strong></div>
+  <p class="link link-text small">MyHealth</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-4">
+            <a href="https://blogs.letemps.ch/alexandra-de-toledo/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-10-21/alexandra-150x150.jpg?itok=nZ5PBoDW" class="media-object img-circle"  width="100" height="100"
+      alt="Alexandra de Toledo">
+  
+  <div class="article-author small"><strong>Alexandra de Toledo</strong></div>
+  <p class="link link-text small">La minute santé</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+      <h3>Sport</h3>
+<div class="views-view-grid horizontal cols-6 clearfix">
+            <div class="row views-row clearfix row-1">
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-1">
+            <a href="https://blogs.letemps.ch/juliette-jeannet/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-11-14/juliette-150x150.jpg?itok=EdqLTJMZ" class="media-object img-circle"  width="100" height="100"
+      alt="Juliette Jeannet">
+  
+  <div class="article-author small"><strong>Juliette Jeannet</strong></div>
+  <p class="link link-text small">Ensemble dans l’eau!</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-2">
+            <a href="http://blogs.letemps.ch/celine-van-till/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-18/celine-150x150.jpg?itok=TQ1s-kll" class="media-object img-circle"  width="100" height="100"
+      alt="Celine van Till">
+  
+  <div class="article-author small"><strong>Celine van Till</strong></div>
+  <p class="link link-text small">Tout est possible</p>
+</a>
+
+
+          </div>
+                  <div class="col-xs-4 col-sm-3 col-md-2 blogger-teaser views-col col-3">
+            <a href="http://blogs.letemps.ch/alexander-zelenka/" target="_blank">
+      <img src="https://assets.letemps.ch/sites/default/files/styles/thumbnail/public/blogs/2019-09-19/a-150x150.jpg?itok=eqQkGPRL" class="media-object img-circle"  width="100" height="100"
+      alt="Alexander Zelenka">
+  
+  <div class="article-author small"><strong>Alexander Zelenka</strong></div>
+  <p class="link link-text small">Course de minuit</p>
+</a>
+
+
+          </div>
+              </div>
+      </div>
+
+    
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+</div>
+  </div>
+
+  </div>
+
+    </div>
+  </div>
+</main>
+
+    <div>
+    <div id="block-letemps-socialmedialinks" class="block block-block-content">
+  
+    
+      
+            <div><div class="bg-gray-lighter">
+<div class="container">
+<div class="row text-center">
+<div class="col-md-10 col-md-offset-1">
+<div class="spacer spacer-sm"> </div>
+
+<h4 class="section-title text-center">Suivez toute l'actualité du Temps sur les réseaux sociaux</h4>
+
+<ul class="list-inline social-networks"><li><a class="facebook" href="https://www.facebook.com/letemps.ch" target="_blank" rel="noopener">Facebook</a></li>
+	<li><a class="twitter" href="https://twitter.com/letemps" target="_blank" rel="noopener">Twitter</a></li>
+	<li><a class="instagram" href="https://www.instagram.com/letemps.ch/" target="_blank" rel="noopener">Instagram</a></li>
+	<li><a class="linkedin" href="https://www.linkedin.com/company/le-temps/" target="_blank" rel="noopener">LinkedIn</a></li>
+	<li><a class="youtube" href="https://www.youtube.com/letemps" target="_blank" rel="noopener">YouTube</a></li>
+</ul><div class="spacer spacer-sm"> </div>
+</div>
+</div>
+</div>
+<!-- /container --></div>
+</div>
+      
+  </div>
+
+  </div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-md-4 col-md-offset-1">
+  <div class="media">
+    <div class="media-left">
+      <i class="media-object ltpsicon ltpsicon-newspaper"></i>
+    </div>
+    <div class="media-body">
+      <a href="/newsletters" style="text-decoration:none">
+        <h4 class="media-heading h5">Vos newsletters</h4>
+        <p>Inscrivez-vous et recevez les newsletters de votre choix. <b>Voir la liste</b>.</p>
+      </a>
+    </div>
+
+  </div>
+</div>
+<div class="col-sm-7 col-md-6">
+  <div class="spacer spacer-xxs"></div>
+  <div class="nl-subscription-container-footer"></div>
+  <div class="spacer spacer-xxs"></div>
+</div>
+    </div>
+  </div>
+      <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1 footer-credits">
+            <a href="https://www.letemps.ch/"><img class="logo" src="https://assets.letemps.ch/themes/custom/letemps/assets/svg/logo-negative.svg" alt="" /></a>
+              
+        <ul class="list-inline">
+              <li class="hidden-xs">
+                                <a href="/a-propos"  class="hidden-xs">À propos</a>
+                </li>
+              <li>
+                                <a href="https://www.letemps.ch/abos" >Abonnements</a>
+                </li>
+              <li>
+                                <a href="http://www.admeira.ch/fr/brands/digital/letemps-ch" >Publicité</a>
+                </li>
+              <li>
+                                <a href="/abonnes/services" >Services</a>
+                </li>
+              <li>
+                                <a href="/contact/annuaire" >Impressum</a>
+                </li>
+              <li>
+                                <a href="/protection-donnees" >Protection des données</a>
+                </li>
+      </ul>
+  
+
+
+
+            <a class="btn btn-default btn-top pull-right" href="#top"><i class="fa fa-chevron-up"></i></a>
+          </div>
+        </div>
+
+        <div class="row text-center">&nbsp;</div>
+
+        <div class="spacer spacer-sm"></div>
+
+      </div>
+    </div>
+  </footer>
+
+  </div>
+
+    
+    <div class="popup popup-medium hidden" id="popup-warning-support">
+      <span class="popup-title"></span>
+      <p class="popup-text text-serif"></p>
+      <div class="popup-footer">
+        <a class="btn btn-primary" href="#"></a>
+        <img src="https://assets.letemps.ch/themes/custom/letemps/logo-black.svg" alt="" class="popup-logo">
+      </div>
+    </div>
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"blogs","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"fr"},"pluralDelimiter":"\u0003","ajaxPageState":{"libraries":"blazy\/load,core\/html5shiv,core\/picturefill,factory_mailchimp\/newsletter,factory_piano\/factory_piano,lt_admeira\/lt_admeira,lt_bookmark\/bookmark,lt_custom\/recommendations,np8_embed\/np8_embed,np8_user\/login-destination,system\/base,views\/views.module,views_infinite_scroll\/views-infinite-scroll","theme":"letemps","theme_token":null},"ajaxTrustedUrl":{"\/search":true},"lt_bookmark":{"userToken":null,"firebaseConfig":{"apiKey":"AIzaSyBb50w4-mHGaC7qFOKj4075266yBHnJDfg","authDomain":"le-temps-app.firebaseapp.com","projectId":"le-temps-app"},"bookmark_environment":"users_production"},"np8_embed":{"twitter":{"dialog_add":"Embed Twitter","dialog_edit":"Edit Embedded Twitter"},"facebook":{"app_id":2147483647,"langcode":"de_DE","dialog_add":"Embed Facebook","dialog_edit":"Edit Embedded Facebook","loading":"Loading Facebook Post..."}},"lt_custom":{"recommendations":"https:\/\/europe-west1-app-body-parser.cloudfunctions.net\/getRecommendations"},"lt_admeira":{"publisher_id":"letemps.ch","language":"fr","version":"1.5.6","channel":"ROS","targeting":{"url1":"blogs","usersi":0},"ads":{"admeira-5df35eea7eb56":{"slotCode":"WB_1","mobileSlotCode":"MMR_1","isVideo":false},"admeira-5df35eea7f0c9":{"slotCode":"HPA_1-SBA","mobileSlotCode":"","isVideo":false}}},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:fe866d9afdb2dc0cf707e362e35c56e69efa581590932a3f4062bd2da13f1cbf":{"view_name":"blogs","view_display_id":"block_1","view_args":"","view_path":"\/blogs","view_base_path":null,"view_dom_id":"fe866d9afdb2dc0cf707e362e35c56e69efa581590932a3f4062bd2da13f1cbf","pager_element":0}}},"blazy":{"loadInvisible":true,"offset":100,"saveViewportOffsetDelay":50,"validateDelay":25},"user":{"uid":0,"permissionsHash":"6227f82449c0c038de12bbabf0e7d86f626235b4dc28cfd5b45b7bd71193553a"}}</script>
+<script src="https://assets.letemps.ch/sites/default/files/js/js_DO0xPZcasjxtdhdUZ2tkoyQw3QDslJkxqVQN3nhyprQ.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-app.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-auth.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.3/firebase-firestore.js" defer></script>
+<script src="https://assets.letemps.ch/modules/custom/lt_bookmark/js/bookmark.js?v=1.1" defer></script>
+<script src="https://assets.letemps.ch/sites/default/files/js/js_98uNPtFZy6ynr0d-f1cWYAnndYqUCOOpU_iwqFJr8w0.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"0d3c09e20d","applicationID":"8284479","transactionName":"ZlZTY0pZCxBVBRJQC18cckJLTAoOGxYHXgFuXlBZWV8AERoWB14BbkVYUk9nBw9bARVmBl1cVkQVWgkMVw05XQ1CQ11WQRVV","queueTime":0,"applicationTime":456,"atts":"ShFQFQJDGB4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
